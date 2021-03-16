@@ -32,6 +32,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.android.filelibrary.R;
+import com.gyf.immersionbar.ImmersionBar;
 import com.tencent.smtt.sdk.TbsReaderView;
 import com.tencent.smtt.sdk.TbsReaderView.ReaderCallback;
 
@@ -46,6 +47,7 @@ public class FileDisplayActivity extends Activity implements ReaderCallback {
     private DownloadManager mDownloadManager;
     private long mRequestId;
     private DownloadObserver mDownloadObserver;
+    private ImmersionBar immersionBar;
     private String mFileUrl = "", mFileName, fileName;//文件url 由文件url截取的文件名 上个页面传过来用于显示的文件名
 
     @Override
@@ -56,6 +58,12 @@ public class FileDisplayActivity extends Activity implements ReaderCallback {
         setContentView(R.layout.activity_file_display);
         findViewById();
         getFileUrlByIntent();
+        immersionBar = ImmersionBar.with(this);
+        immersionBar.barColor(R.color.white);
+        immersionBar.fitsSystemWindows(true);
+        immersionBar.autoDarkModeEnable(true);
+        immersionBar.keyboardEnable(true);
+        immersionBar.init();
         mTbsReaderView = new TbsReaderView(this, this);
         rl_tbsView.addView(mTbsReaderView, new RelativeLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
@@ -157,7 +165,7 @@ public class FileDisplayActivity extends Activity implements ReaderCallback {
      * @param fileUrl  文件url
      * @param fileName 文件名
      */
-    public static void actionStart(Context context, String fileUrl, String fileName) {
+    public static void startActivity(Context context, String fileUrl, String fileName) {
         Intent intent = new Intent(context, FileDisplayActivity.class);
         intent.putExtra("fileUrl", fileUrl);
         intent.putExtra("fileName", fileName);

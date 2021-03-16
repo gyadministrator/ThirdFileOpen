@@ -1,20 +1,28 @@
-package com.android.thirdfileopen;
+怎样使用?
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+工程的Gradle引入方式：
 
-import androidx.appcompat.app.AppCompatActivity;
+    repositories {
+            google()
+            jcenter()
+            mavenCentral()
+        }
 
-import com.android.filelibrary.activity.FileDisplayActivity;
+    allprojects {
+        repositories {
+            google()
+            jcenter()
+            maven { url 'https://jitpack.io' }
+            mavenCentral()
+        }
+    }
 
-/**
- * @ProjectName: ThirdFileOpen
- * @Package: com.android.thirdfileopen
- * @ClassName: MainActivity
- * @Author: 1984629668@qq.com
- * @CreateDate: 2021/3/16 11:37
- */
+  dependencies {
+		implementation 'com.github.gyadministrator:ThirdFileOpen:1.0'
+	}
+
+在activity使用，非常简单。
+  
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button btn_fileBrowsing;
     private String fileName = "测试1.docx";
@@ -38,4 +46,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 }
+
 
