@@ -18,7 +18,7 @@
     }
 
   dependencies {
-		implementation 'com.github.gyadministrator:ThirdFileOpen:1.0'
+		implementation 'com.github.gyadministrator:ThirdFileOpen:1.1'
 	}
 
 在activity使用，非常简单。

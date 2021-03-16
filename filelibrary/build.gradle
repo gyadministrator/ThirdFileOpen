@@ -43,9 +43,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    api files('libs/tbs_sdk_thirdapp_v3.6.0.1249_43610_sharewithdownload_withoutGame_obfs_20180608_114954.jar')
-    api 'androidx.recyclerview:recyclerview:1.1.0'
-    api 'pub.devrel:easypermissions:1.1.0'
+    implementation files('libs/tbs_sdk_thirdapp_v3.6.0.1249_43610_sharewithdownload_withoutGame_obfs_20180608_114954.jar')
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'pub.devrel:easypermissions:1.1.0'
     // 基础依赖包，必须要依赖
     implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
 }
